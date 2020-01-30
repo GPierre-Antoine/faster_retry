@@ -1,19 +1,16 @@
 <?php
 
-namespace igorw;
+namespace pag;
 
 class FailingTooHardException extends \Exception {}
 
 function retry($retries, callable $fn)
 {
-    beginning:
-    try {
-        return $fn();
-    } catch (\Exception $e) {
-        if (!$retries) {
-            throw new FailingTooHardException('', 0, $e);
-        }
-        $retries--;
-        goto beginning;
-    }
+    do
+        try{
+            return $fn();
+        } catch (\Exception $e) {}
+    while ($retries--);
+    throw new FailingTooHardException('', 0, $e);
+
 }

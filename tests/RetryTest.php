@@ -1,6 +1,6 @@
 <?php
 
-namespace igorw;
+namespace pag;
 
 class RetryTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,7 +45,7 @@ class RetryTest extends \PHPUnit_Framework_TestCase
         } catch (\Exception $e) {
         }
 
-        $this->assertInstanceof('igorw\FailingTooHardException', $e);
+        $this->assertInstanceof(FailingTooHardException::class, $e);
         $this->assertInstanceof('RuntimeException', $e->getPrevious());
         $this->assertSame('rofl', $e->getPrevious()->getMessage());
         $this->assertSame(2, $i);
@@ -63,7 +63,7 @@ class RetryTest extends \PHPUnit_Framework_TestCase
         } catch (\Exception $e) {
         }
 
-        $this->assertInstanceof('igorw\FailingTooHardException', $e);
+        $this->assertInstanceof(FailingTooHardException::class, $e);
         $this->assertInstanceof('RuntimeException', $e->getPrevious());
         $this->assertSame('dogecoin', $e->getPrevious()->getMessage());
         $this->assertSame(1001, $i);
