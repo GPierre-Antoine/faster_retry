@@ -1,5 +1,5 @@
 {
-  "name": "GPierre-Antoine/retry",
+  "name": "gpierre-antoine/retry",
   "description": "A tiny library for retrying failing operations.",
     "keywords": ["failure"],
   "license": "MIT",
